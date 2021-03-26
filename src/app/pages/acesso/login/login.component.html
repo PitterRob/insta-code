@@ -1,0 +1,45 @@
+<div class="card" style="width: 20rem;">
+  <div class="card-body">
+    <div class="card-title"></div>
+
+    <form [formGroup]="formulario" (ngSubmit)="LogIn()">
+      <div class="form-group">
+        <input type="email"
+          class="{{!formulario.get('email').touched ? 'form-control' : formulario.get('email').touched && formulario.get('email').invalid ? 'form-control is-invalid' :formulario.get('email').touched && formulario.get('email').valid ? 'form-control is-valid':'form-control is-valid'}}"
+          formControlName="email" placeholder="E-mail">
+        <div *ngIf="formulario.get('email').errors?.required && formulario.get('email').touched"
+          class="invalid-feedback">
+          Email é obrigatório
+        </div>
+        <div *ngIf="formulario.get('email').errors?.pattern && formulario.get('email').touched"
+          class="invalid-feedback">
+          Email é invalido
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="password"
+          class="{{!formulario.get('senha').touched ? 'form-control' : formulario.get('senha').touched && formulario.get('senha').invalid ? 'form-control is-invalid' :formulario.get('senha').touched && formulario.get('senha').valid ? 'form-control is-valid':'form-control is-valid'}}"
+          formControlName="senha" placeholder="Senha">
+        <div *ngIf="formulario.get('senha').errors?.required && formulario.get('senha').touched"
+          class="invalid-feedback">
+          Senha é obrigatória
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm btn-block" [disabled]='!formulario.valid'>Entrar</button>
+    </form>
+    <hr />
+
+    <p *ngIf="exibirError" class="small text-danger text-center">O nome de usuário inserido não pertence a uma conta.
+      Verifique seu nome de
+      usuário e tente novamente.</p>
+
+  </div>
+</div>
+<br />
+<div class="card" style="width: 20rem;">
+  <div class="card-body">
+    <p class="card-text">
+      Não tem uma conta? <a href="#" class="card-link" (click)="exibirPainelCadastro()">Cadastre-se</a>
+    </p>
+  </div>
+</div>

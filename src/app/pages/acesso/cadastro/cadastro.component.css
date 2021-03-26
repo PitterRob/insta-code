@@ -1,0 +1,23 @@
+.card-title {
+  background-image: url("/assets/logo-instagram.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 100%;
+}
+
+.mostrar {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  cursor: pointer;
+  z-index: 10;
+}
+.is-invalid {
+  background-image: none;
+  background-repeat: no-repeat;
+}
+.is-valid {
+  background-image: none;
+  background-repeat: no-repeat;
+}

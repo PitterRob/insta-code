@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 d-flex justify-content-end" [@animacao-banner]="estadoBanner">
+      <app-banner></app-banner>
+    </div>
+
+    <div *ngIf="!cadastro" class="col-sm-6 d-flex justify-content-start" [@animacao-painel]="estadoPainel"
+      (@animacao-painel.start)="inicioAnimacao()" (@animacao-painel.done)="fimAnimacao()">
+      <app-login (exibirCadastro)="exibirPainel($event)"></app-login>
+
+    </div>
+    <div *ngIf="cadastro" class="col-sm-6 d-flex justify-content-start" [@animacao-painel]="estadoPainel"
+      (@animacao-painel.start)="inicioAnimacao()" (@animacao-painel.done)="fimAnimacao()">
+      <app-cadastro (exibirLogin)="exibirPainel($event)"></app-cadastro>
+    </div>
+  </div>
+</div>
